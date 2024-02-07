@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel='stylesheet' href="style.css">
+    <title>Countoit</title>
+</head>
+
+<body>
+    <header>
+        <div class="menu">
+            <div class="menu-options-1">
+                <div class="option-new">
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="option-reset">
+                    <i class="fas fa-redo-alt"></i>
+                </div>
+                <div class="option-change">
+                    <i class="fas fa-pen"></i>
+                </div>
+                <div class="option-save">
+                    <i class="fas fa-save"></i>
+                </div>
+            </div>
+            <div class="menu-options-2">
+                <div class="option-pause">
+                    <i class="fas fa-pause"></i>
+                </div>
+                <div class="option-resume">
+                    <i class="fas fa-play"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="modal-cont">
+        <div class="modal-input">
+            <label for="event">Enter event name</label>
+            <input type="text" id="event" name="event" placeholder="Event name">
+            <label for="date">Enter a date</label>
+            <input type="date" id="date" name="date" placeholder="Date">
+        </div>
+    </div>
+    <div class="container">
+        <div class="event-name">
+            <p class="name" id="name">No event to display.</p>
+        </div>
+        <div class="timer">
+            <div class="days">00</div>
+            <span>:</span>
+            <div class="hours">00</div>
+            <span>:</span>
+            <div class="minutes">00</div>
+            <span>:</span>
+            <div class="seconds">00</div>
+        </div>
+    </div>
+
+
+
+    <script src="./script.js"></script>
+</body>
+</html>
