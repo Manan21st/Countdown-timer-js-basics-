@@ -58,7 +58,7 @@ function updatecountdown(){
         hours.textContent = hoursLeft;
         minutes.textContent = minutesLeft;
         seconds.textContent = secondsLeft;
-        //saveTimerData(inputdate.value, document.getElementById('event').value, daysLeft, hoursLeft, minutesLeft, secondsLeft,counterRunning);
+        saveTimerData(inputdate.value, document.getElementById('event').value, daysLeft, hoursLeft, minutesLeft, secondsLeft,counterRunning);
     }else{
         changeText("No event to display.");
         days.textContent = 0;
@@ -156,53 +156,58 @@ container.addEventListener('click',(e)=>{
 
 
 
-// function saveTimerData(eventDate, eventName, daysLeft, hoursLeft, minutesLeft, secondsLeft,counterRunning) {
-//     localStorage.setItem('eventDate', eventDate);
-//     localStorage.setItem('eventName', eventName);
-//     localStorage.setItem('daysLeft', daysLeft);
-//     localStorage.setItem('hoursLeft', hoursLeft);
-//     localStorage.setItem('minutesLeft', minutesLeft);
-//     localStorage.setItem('secondsLeft', secondsLeft);
-//     localStorage.setItem('counterRunning', counterRunning);
-// }
+function saveTimerData(eventDate, eventName, daysLeft, hoursLeft, minutesLeft, secondsLeft,counterRunning) {
+    localStorage.setItem('eventDate', eventDate);
+    localStorage.setItem('eventName', eventName);
+    localStorage.setItem('daysLeft', daysLeft);
+    localStorage.setItem('hoursLeft', hoursLeft);
+    localStorage.setItem('minutesLeft', minutesLeft);
+    localStorage.setItem('secondsLeft', secondsLeft);
+    localStorage.setItem('counterRunning', counterRunning);
+}
 
-// function loadTimerData() {
-//     var eventDate = new Date(localStorage.getItem('eventDate'));
-//     var eventName = localStorage.getItem('eventName');
-//     var daysLeft = localStorage.getItem('daysLeft');
-//     var hoursLeft = localStorage.getItem('hoursLeft');
-//     var minutesLeft = localStorage.getItem('minutesLeft');
-//     var secondsLeft = localStorage.getItem('secondsLeft');
-//     console.log(eventDate);
-//     console.log(eventName + " " + daysLeft + " " + hoursLeft + " " + minutesLeft + " " +secondsLeft);
-//     var currentDate = new Date();
-//     var diff = eventDate.getTime() - currentDate.getTime();
+function loadTimerData() {
 
-//     if(diff>0){
-//         if (eventName) {
-//             changeText(eventName);
-//         }
-//         if (daysLeft && hoursLeft && minutesLeft && secondsLeft) {
-//             days.textContent = daysLeft;
-//             hours.textContent = hoursLeft;
-//             minutes.textContent = minutesLeft;
-//             seconds.textContent = secondsLeft;
+    var eventDate = new Date(localStorage.getItem('eventDate'));
+    inputdate.value=eventDate.toISOString().split('T')[0];
+    eventName = localStorage.getItem('eventName');
+    document.getElementById('event').value = eventName ;
+    var daysLeft = localStorage.getItem('daysLeft');
+    var hoursLeft = localStorage.getItem('hoursLeft');
+    var minutesLeft = localStorage.getItem('minutesLeft');
+    var secondsLeft = localStorage.getItem('secondsLeft');
+    var counterRunning = localStorage.getItem('counterRunning');
+    
+    console.log(eventDate);
+    console.log(eventName + " " + daysLeft + " " + hoursLeft + " " + minutesLeft + " " +secondsLeft);
+    var currentDate = new Date();
+    var diff = eventDate.getTime() - currentDate.getTime();
+
+    if(diff>0){
+        if (eventName) {
+            changeText(eventName);
+        }
+        if (daysLeft || hoursLeft || minutesLeft || secondsLeft) {
+            days.textContent = daysLeft;
+            hours.textContent = hoursLeft;
+            minutes.textContent = minutesLeft;
+            seconds.textContent = secondsLeft;
             
-//         }
-//         if (counterRunning) {
-//             startCountdown();
-//             counterRunning = true;
-//         } else {
-//             counterRunning = false;
-//             window.alert("Event is completed");
-//         }
+        }
+        if (counterRunning) {
+            startCountdown();
+            counterRunning = true;
+        } else {
+            counterRunning = false;
+            window.alert("Event is completed");
+        }
 
-//     }
-// }
+    }
+}
 
-// document.addEventListener('DOMContentLoaded', function() {
-//     loadTimerData();
-// });
+document.addEventListener('DOMContentLoaded', function() {
+    loadTimerData();
+});
 
 
 
